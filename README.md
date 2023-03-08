@@ -1,5 +1,5 @@
 # ContactList
-Backend application with REST API architecture created using ASP.NET Core.
+Backend application with REST API architecture created using ASP.NET Core. It allows customer to create contact list for organization which can be seen by every participating person. And can be edited only by authorized users.
 ## Table of contents
 * [Classes and Methods](#class-methods)
 * [Libraries](#libraries)
