@@ -220,3 +220,17 @@ Project is created with:
 * Change  "Default Connection" : ... in file appsettings.json to Your Database connection string.
 * Compile Solution - During compilation The database will seed with data You can find in Data/Seeder.cs
 * Now You can contact with Api using for example Postman.
+* You can also preview working of application under https/localhost:7011/swagger
+* If u want to test token generation You can post <br>
+https://localhost:7011/api/account/login
+with Json body filled like this :  
+```
+{
+    "email" : "exampleUser@example.com",
+    "password" : "example@1234",
+    "confirmPassword" :"example@1234"
+}
+
+
+
+```
