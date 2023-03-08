@@ -25,6 +25,36 @@ namespace ContactListApi.Models.Validators
                    var categoryExist = dbContext.Categories.Any(c => c.Name == value);
                    if (!categoryExist) { context.AddFailure("Category", "That category is not valid."); }
                });
+            RuleFor(x => x.PasswordHash)
+                .MinimumLength(8)
+                .Custom((value, context) =>
+                {
+                    if (!value.Any(char.IsUpper))
+                    {
+                        context.AddFailure("Password", "Password does not contain upper letter.");
+                    }
+                    if (!value.Any(char.IsLower))
+                    {
+                        context.AddFailure("Password", "Password does not contain lower letter.");
+                    }
+                    if (!value.Any(char.IsDigit))
+                    {
+                        context.AddFailure("Password", "Password does not contain number.");
+                    }
+                    string specialCh = @"%!@#$%^&*()?/>.<,:;'\|}]{[_~`+=-" + "\"";
+                    char[] specialChArray = specialCh.ToCharArray();
+                    foreach (char ch in specialChArray)
+                    {
+                        if (value.Contains(ch))
+                        {
+                            break;
+                        }
+                        if (specialChArray.Last() == ch)
+                        {
+                            context.AddFailure("Password", "Password does not contain special character.");
+                        }
+                    }
+                });
         }
     }
 }
