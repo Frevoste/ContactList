@@ -230,7 +230,7 @@ with Json body filled like this :
     "password" : "example@1234",
     "confirmPassword" :"example@1234"
 }
-
-
-
 ```
+
+Sincerly,
+@Frevoste.
